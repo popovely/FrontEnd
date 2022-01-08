@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <h2>배열을 이용한 평균구하기</h2>
+    <table border="1">
+        <tr>
+            <td>학생수입력</td>
+            <td><input type="text" id="numOfStudent" size="5"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" onclick="getAverage();">
+                    평균구하기
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var studentArray = new Array();
+
+        var getAverage = function(){
+            var countOfStudent = document.getElementById("numOfStudent").value;
+        
+            var total = 0;
+            for(var i=0; i<countOfStudent; i++){
+                studentArray[i] = parseInt(prompt(i+1 +"번째 학생점수 : ", "50"));
+                total += studentArray[i];
+            }
+            var avg = total / countOfStudent;
+
+            var stringResult="";
+            for(var i=0; i<countOfStudent; i++){
+                stringResult += (i+1) +"번째 학생의 점수 : "+ studentArray[i] +"\r\n";
+            }
+            stringResult += "총점 : "+ total +", 평균 : "+ avg;
+            alert(stringResult);
+        }
+    </script>
+</body>
+</html>
